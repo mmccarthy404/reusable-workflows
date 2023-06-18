@@ -29,10 +29,10 @@ jobs:
   terraform-cd:
     name: terraform-cd
     runs-on: ubuntu-latest
-       defaults:
-        run:
-          shell: bash
-          working-directory: ${{ inputs.terraform-directory }}
+    defaults:
+      run:
+        shell: bash
+        working-directory: ${{ inputs.terraform-directory }}
 
     steps:
     - name: Checkout
