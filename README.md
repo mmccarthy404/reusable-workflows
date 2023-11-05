@@ -1,6 +1,6 @@
 # reusable-workflows
 
-GitHub reusable workflows used accross all projects.
+GitHub reusable workflows used across all projects.
 
 ## terraform-ci
 
