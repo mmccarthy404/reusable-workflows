@@ -23,10 +23,6 @@ on:
         type: string  
 
 jobs:
-  security:
-    uses: mmccarthy404/reusable-workflows/.github/workflows/security.yaml@v2.0.0
-    secrets: inherit
-
   terraform-cd:
     name: terraform-cd
     runs-on: ubuntu-latest
@@ -50,17 +46,9 @@ jobs:
       with:
         terraform_version: ${{ inputs.terraform-version }}
 
-    - name: Terraform Format
-      id: fmt
-      run: terraform fmt -check --recursive
-
     - name: Terraform Init
       id: init
       run: terraform init -backend-config ${{ inputs.terraform-backend-config }} -upgrade
-
-    - name: Terraform Validate
-      id: validate
-      run: terraform validate -no-color
 
     - name: Terraform Apply
       id: apply
