@@ -21,11 +21,12 @@ on:
       aws-role:
         required: true
         type: string  
-    secrets:
-      token:
-        required: true
 
 jobs:
+  security:
+    uses: mmccarthy404/reusable-workflows/.github/workflows/security.yaml@v2.0.0
+    secrets: inherit
+
   terraform-cd:
     name: terraform-cd
     runs-on: ubuntu-latest
