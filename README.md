@@ -2,6 +2,20 @@
 
 GitHub reusable workflows used across all projects.
 
+## security
+
+### Usage
+
+```
+permissions:
+  pull-requests: write
+
+jobs:
+  security:
+    uses: mmccarthy404/reusable-workflows/.github/workflows/security.yaml@v2.0.0
+    secrets: inherit
+```
+
 ## terraform-ci
 
 ### Usage
@@ -15,7 +29,8 @@ permissions:
 
 jobs:
   terraform-ci:
-    uses: mmccarthy404/reusable-workflows/.github/workflows/terraform-ci.yaml@v1.0.0
+    uses: mmccarthy404/reusable-workflows/.github/workflows/terraform-ci.yaml@v2.0.0
+    secrets: inherit
     with:
       terraform-version: 1.5.0
       terraform-directory: .
@@ -23,8 +38,6 @@ jobs:
       terraform-backend-config: backend.tfvars
       aws-region: us-east-1
       aws-role: arn:aws:iam::004351562122:role/github-oidc-terraform-remote-state
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ### Inputs
@@ -34,9 +47,6 @@ jobs:
 * `terraform-backend-config` (string) - Terraform backend variable file used during initialization
 * `aws-region` (string) - AWS region used for getting STS credentials
 * `aws-role` (string) - AWS IAM role used for getting STS credentials
-
-### Secrets
-* `token`
 
 ## terraform-cd
 
@@ -49,7 +59,8 @@ permissions:
 
 jobs:
   terraform-cd:
-    uses: mmccarthy404/reusable-workflows/.github/workflows/terraform-cd.yaml@v1.0.0
+    uses: mmccarthy404/reusable-workflows/.github/workflows/terraform-cd.yaml@v2.0.0
+    secrets: inherit
     with:
       terraform-version: 1.5.0
       terraform-directory: .
@@ -57,8 +68,6 @@ jobs:
       terraform-backend-config: backend.tfvars
       aws-region: us-east-1
       aws-role: arn:aws:iam::004351562122:role/github-oidc-terraform-remote-state
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ### Inputs
@@ -68,6 +77,3 @@ jobs:
 * `terraform-backend-config` (string) - Terraform backend variable file used during initialization
 * `aws-region` (string) - AWS region used for getting STS credentials
 * `aws-role` (string) - AWS IAM role used for getting STS credentials
-
-### Secrets
-* `token`
