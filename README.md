@@ -2,7 +2,7 @@
 
 GitHub reusable workflows used across all projects.
 
-## security
+## scanning
 
 ### Usage
 
@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   security:
-    uses: mmccarthy404/reusable-workflows/.github/workflows/security.yaml@v2.0.0
+    uses: mmccarthy404/reusable-workflows/.github/workflows/scanning.yaml@v2.0.0
     secrets: inherit
 ```
 
