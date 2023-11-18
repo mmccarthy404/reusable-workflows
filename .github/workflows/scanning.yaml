@@ -1,4 +1,5 @@
 name: scanning
+
 on:
   push:
   pull_request:

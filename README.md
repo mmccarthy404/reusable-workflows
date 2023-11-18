@@ -11,7 +11,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  security:
+  scanning:
     uses: mmccarthy404/reusable-workflows/.github/workflows/scanning.yaml@v2.0.0
     secrets: inherit
 ```
@@ -77,3 +77,25 @@ jobs:
 * `terraform-backend-config` (string) - Terraform backend variable file used during initialization
 * `aws-region` (string) - AWS region used for getting STS credentials
 * `aws-role` (string) - AWS IAM role used for getting STS credentials
+
+## terraform-docs
+
+### Usage
+
+```
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform-docs:
+    uses: mmccarthy404/reusable-workflows/.github/workflows/terraform-docs.yaml@v2.0.0
+    secrets: inherit
+    with:
+      working-dir: .
+      output-file: README.md
+```
+
+### Inputs
+* `working-dir` (string) - Comma separated list of directories to generate docs for
+* `output-file` (string) - File in module directory where the docs should be placed
