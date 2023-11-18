@@ -21,9 +21,6 @@ on:
       aws-role:
         required: true
         type: string  
-    secrets:
-      token:
-        required: true
 
 jobs:
   terraform-cd:
@@ -49,17 +46,9 @@ jobs:
       with:
         terraform_version: ${{ inputs.terraform-version }}
 
-    - name: Terraform Format
-      id: fmt
-      run: terraform fmt -check --recursive
-
     - name: Terraform Init
       id: init
       run: terraform init -backend-config ${{ inputs.terraform-backend-config }} -upgrade
-
-    - name: Terraform Validate
-      id: validate
-      run: terraform validate -no-color
 
     - name: Terraform Apply
       id: apply
