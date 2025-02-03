@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   scanning:
-    uses: mmccarthy404/reusable-workflows/.github/workflows/scanning.yaml@v2.0.0
+    uses: michaelmccarthydev/reusable-workflows/.github/workflows/scanning.yaml@v2.0.0
     secrets: inherit
 ```
 
@@ -29,7 +29,7 @@ permissions:
 
 jobs:
   terraform-ci:
-    uses: mmccarthy404/reusable-workflows/.github/workflows/terraform-ci.yaml@v2.0.0
+    uses: michaelmccarthydev/reusable-workflows/.github/workflows/terraform-ci.yaml@v2.0.0
     secrets: inherit
     with:
       terraform-version: 1.5.0
@@ -59,7 +59,7 @@ permissions:
 
 jobs:
   terraform-cd:
-    uses: mmccarthy404/reusable-workflows/.github/workflows/terraform-cd.yaml@v2.0.0
+    uses: michaelmccarthydev/reusable-workflows/.github/workflows/terraform-cd.yaml@v2.0.0
     secrets: inherit
     with:
       terraform-version: 1.5.0
@@ -89,7 +89,7 @@ permissions:
 
 jobs:
   terraform-docs:
-    uses: mmccarthy404/reusable-workflows/.github/workflows/terraform-docs.yaml@v2.0.0
+    uses: michaelmccarthydev/reusable-workflows/.github/workflows/terraform-docs.yaml@v2.0.0
     secrets: inherit
     with:
       working-dir: .
