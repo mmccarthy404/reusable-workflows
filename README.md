@@ -78,6 +78,37 @@ jobs:
 * `aws-region` (string) - AWS region used for getting STS credentials
 * `aws-role` (string) - AWS IAM role used for getting STS credentials
 
+## terraform-destroy
+
+### Usage
+
+```
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform-destroy:
+    if: github.event.inputs.confirm == 'destroy'
+    uses: mmccarthy404/reusable-workflows/.github/workflows/terraform-destroy.yaml@main
+    secrets: inherit
+    with:
+      terraform-version: 1.5.0
+      terraform-directory: .
+      terraform-var-file: terraform.tfvars
+      terraform-backend-config: backend.tfvars
+      aws-region: us-east-1
+      aws-role: arn:aws:iam::004351562122:role/github-oidc-terraform-remote-state
+```
+
+### Inputs
+* `terraform-version` (string) - Terraform version used in workflow
+* `terraform-directory` (string) - Terraform directory to run workflow
+* `terraform-var-file` (string) - Terraform variable file used during planning
+* `terraform-backend-config` (string) - Terraform backend variable file used during initialization
+* `aws-region` (string) - AWS region used for getting STS credentials
+* `aws-role` (string) - AWS IAM role used for getting STS credentials
+
 ## terraform-docs
 
 ### Usage
