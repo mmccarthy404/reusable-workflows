@@ -20,12 +20,19 @@ on:
         type: string
       aws-role:
         required: true
-        type: string  
+        type: string
+    secrets:
+      token:
+        required: false
+      neon-api-key:
+        required: false
 
 jobs:
   terraform-ci:
     name: terraform-ci
     runs-on: ubuntu-latest
+    env:
+      NEON_API_KEY: ${{ secrets.neon-api-key }}
     defaults:
       run:
         shell: bash
